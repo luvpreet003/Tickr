@@ -1,1 +1,173 @@
-<p>layout works!</p>
+<!-- navbar start-->
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand align-self-baseline" href="#"
+      ><i class="fa-solid fa-bars me-3"></i>Jira Software</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Your Work
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Projects
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Filters
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dashboard
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Teams
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-dark content-hover"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Apps
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <button
+              class="btn bg-primary p-0 px-1 text-white"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Create
+            </button></a
+          >
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn m-0 p-0" type="submit">
+          <i class="fa-solid fa-bell content-hover p-2"></i>
+        </button>
+        <button class="btn m-0 p-0" type="submit">
+          <i class="fa-solid fa-question content-hover p-2"></i>
+        </button>
+        <button class="btn m-0 p-0" type="submit">
+          <i class="fa-solid fa-gear content-hover p-2"></i>
+        </button>
+        <div
+          class="bg-primary rounded-circle text-white w-25 h-25 py-2 text-center"
+        >
+          CT
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
