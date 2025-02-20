@@ -1,0 +1,92 @@
+.navbar {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .navbar .nav-link {
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar .nav-link:hover {
+    color: #007bff !important;
+  }
+  
+  .navbar .btn {
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  
+  .navbar .bg-primary {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .navbar .fa-solid {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .navbar .fa-solid:hover {
+    transform: scale(1.1);
+  }
+
+  .modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    background: #f8f9fa;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+  .modal-footer .btn {
+    font-weight: bold;
+  }
+  
+  .modal label {
+    font-weight: 600;
+  }
+  
+  .modal .form-control {
+    border-radius: 5px;
+  }
+  
+  .modal .border-dotted {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    border-radius: 5px;
+    background: #f1f8ff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .modal .border-dotted:hover {
+    background: #e3f2fd;
+  }
+  
+  

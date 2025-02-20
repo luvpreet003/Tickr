@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonService } from '../../../../src/app/services/common.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-board',
+  imports: [CommonModule],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
 })

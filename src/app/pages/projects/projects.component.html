@@ -4,15 +4,17 @@
       class="btn btn-success btn-sm"
       data-bs-toggle="modal"
       data-bs-target="#myModal"
+      (click)="resetProjectForm()"
     >
       Create New Project +
     </button>
   </div>
 </div>
-<div class="row">
+
+<div class="row mt-3">
   <div class="col-3" *ngFor="let project of projectList">
     <div class="card">
-      <div class="card-header bg-success">
+      <div class="card-header bg-success text-white">
         {{ project.shortName }}
       </div>
       <div class="card-body">
@@ -23,25 +25,40 @@
           {{ project.createdDate | date : "dd-MM-yy" }}
         </div>
       </div>
-    </div>
-    <div class="card-footer">
-      <div class="row">
-        <div class="col-6">
-          <button class="btn btn-success btn-sm">Edit</button>
-        </div>
-        <div class="col-6">
-          <button class="btn btn-danger btn-sm">Delete</button>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6">
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="onEdit(project)"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+            >
+              Edit
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="onDelete(project.projectId)"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal" id="myModal">
+<!-- Modal for Create/Edit -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">New Project</h4>
+        <h4 class="modal-title">
+          {{ isEditing ? "Edit Project" : "New Project" }}
+        </h4>
         <button
           type="button"
           class="btn-close"
@@ -50,13 +67,40 @@
       </div>
 
       <div class="modal-body">
-        <div class="row"></div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-            Close
-          </button>
+        <div class="row">
+          <div class="col-5">
+            <label for="">Short Name</label>
+            <input
+              type="text"
+              name="shortName"
+              class="form-control"
+              [(ngModel)]="projectObj.shortName"
+            />
+          </div>
+          <div class="col-5">
+            <label for="">Full Name</label>
+            <input
+              type="text"
+              name="projectName"
+              class="form-control"
+              [(ngModel)]="projectObj.projectName"
+            />
+          </div>
         </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onSave()"
+          data-bs-dismiss="modal"
+        >
+          {{ isEditing ? "Update" : "Save" }}
+        </button>
       </div>
     </div>
   </div>

@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../../src/app/services/common.service';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
-  imports: [FormsModule, RouterOutlet],
+  imports: [FormsModule, RouterOutlet, CommonModule],
 })
 export class LayoutComponent implements OnInit {
   projectList: any[] = [];
@@ -43,7 +44,6 @@ export class LayoutComponent implements OnInit {
     this.getAllUsers();
   }
   setProject(obj: any) {
-    debugger;
     this.commonServices.onProjectChange.next(obj);
   }
 
