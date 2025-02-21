@@ -25,7 +25,7 @@ export class LoginComponent {
       console.log(res.data);
       if (res.data) {
         localStorage.setItem('loginDetails', JSON.stringify(res.data));
-        this.router.navigate(['board']).then((navigated) => {
+        this.router.navigate(['projects']).then((navigated) => {
           if (navigated) {
             console.log('Navigation to board successful');
           } else {
