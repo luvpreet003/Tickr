@@ -13,7 +13,7 @@
 
 <div class="row mt-3">
   <div class="col-3" *ngFor="let project of projectList">
-    <div class="card">
+    <div class="card" (click)="navigateToDetails(project.projectId)">
       <div class="card-header bg-success text-white">
         {{ project.shortName }}
       </div>

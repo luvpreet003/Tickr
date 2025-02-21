@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
     parentId: 0,
     storyPoint: 0,
     ticketGuid: '',
-    assignedTo: 0,
+    assignedTo: '',
     createdBy: 0,
     projectId: 0,
   };
@@ -50,7 +50,6 @@ export class LayoutComponent implements OnInit {
   getAllProjects() {
     this.http.get('/api/Jira/GetAllProjects').subscribe((res: any) => {
       this.projectList = res.data;
-      debugger;
       this.commonServices.onProjectChange.next(this.projectList[0]);
     });
   }

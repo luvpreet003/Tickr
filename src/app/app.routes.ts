@@ -23,7 +23,7 @@ export const routes: Routes = [
         component: UsersComponent,
       },
       {
-        path: 'board',
+        path: 'board/:projectId',
         component: BoardComponent,
       },
       { path: '**', redirectTo: 'login', pathMatch: 'full' },

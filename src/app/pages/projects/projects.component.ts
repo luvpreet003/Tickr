@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './project.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
@@ -19,7 +20,7 @@ export class ProjectsComponent implements OnInit {
   };
   isEditing: boolean = false;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllProjects();
@@ -29,6 +30,11 @@ export class ProjectsComponent implements OnInit {
     this.projectService.getAllProjects().subscribe((res: any) => {
       this.projectList = res.data;
     });
+  }
+
+  navigateToDetails(projectId: number) {
+    console.log(projectId);
+    this.router.navigate(['/board', projectId]); // Navigate with dynamic ID
   }
 
   resetProjectForm() {
