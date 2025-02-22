@@ -3,6 +3,7 @@ import { TicketService } from './board.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 interface Ticket {
   ticketId: number;
@@ -56,7 +57,8 @@ export class BoardComponent implements OnInit {
 
   constructor(
     private ticketService: TicketService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private http: HttpClient
   ) {}
 
   // loadSampleTickets() {
@@ -175,8 +177,14 @@ export class BoardComponent implements OnInit {
 
   editTicket(ticket: Ticket) {
     console.log(ticket);
-    this.selectedTicket = ticket;
-    this.isModalOpen = true;
+    return this.http
+      .post(`/api/Jira/GetTicketById?id=${ticket.ticketId}`, {
+        id: ticket.ticketId,
+      })
+      .subscribe((res: any) => {
+        this.selectedTicket = res.data;
+        this.isModalOpen = true;
+      });
   }
 
   saveChanges() {
@@ -190,6 +198,7 @@ export class BoardComponent implements OnInit {
 
   closeModal() {
     this.isModalOpen = false;
+    document.getElementById('cancelModalbtn')?.click();
   }
 
   deleteTicket(ticketId: number) {

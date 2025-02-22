@@ -32,7 +32,7 @@ export class TicketService {
 
   getTickets(projectId: string): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(
-      `${this.apiUrl}/GetticketsByProjectid/${projectId}`
+      `${this.apiUrl}/GetTicketsByProjectId?${projectId}`
     );
   }
 
