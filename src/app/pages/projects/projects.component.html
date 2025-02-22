@@ -30,7 +30,7 @@
           <div class="col-6">
             <button
               class="btn btn-warning btn-sm"
-              (click)="onEdit(project)"
+              (click)="onEdit(project, $event)"
               data-bs-toggle="modal"
               data-bs-target="#myModal"
             >
@@ -40,7 +40,7 @@
           <div class="col-6">
             <button
               class="btn btn-danger btn-sm"
-              (click)="onDelete(project.projectId)"
+              (click)="onDelete(project.projectId, $event)"
             >
               Delete
             </button>

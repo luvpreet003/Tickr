@@ -66,12 +66,14 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  onEdit(project: any) {
+  onEdit(project: any, e: Event) {
+    e.stopPropagation();
     this.projectObj = { ...project };
     this.isEditing = true;
   }
 
-  onDelete(id: number) {
+  onDelete(id: number, e: Event) {
+    e.stopPropagation();
     if (confirm('Are you sure you want to delete this project?')) {
       this.projectService.deleteProject(id).subscribe((res: any) => {
         alert(res.message);
