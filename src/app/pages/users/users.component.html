@@ -1,1 +1,120 @@
-<p>users works!</p>
+<div class="row">
+  <div class="col-12 text-end">
+    <button
+      class="btn btn-success btn-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#myModal"
+      (click)="resetUserForm()"
+    >
+      Create New User +
+    </button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-3" *ngFor="let user of userList">
+    <div class="card">
+      <div class="card-header bg-success text-white">
+        {{ user.emailId }}
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            {{ user.fullName }}
+          </div>
+          <div class="col-6">
+            {{ user.password }}
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-6">
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="onEdit(user)"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+            >
+              Edit
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="onDelete(user.userId)"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Create/Edit -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          {{ isEditing ? "Edit User" : "New User" }}
+        </h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <label for="">EmailId</label>
+            <input
+              type="text"
+              name="emailId"
+              class="form-control"
+              [(ngModel)]="userObj.emailId"
+            />
+          </div>
+          <div class="col-6">
+            <label for="">Password</label>
+            <input
+              type="text"
+              name="password"
+              class="form-control"
+              [(ngModel)]="userObj.password"
+            />
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label for="">Full Name</label>
+            <input
+              type="text"
+              name="fullName"
+              class="form-control"
+              [(ngModel)]="userObj.fullName"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onSave()"
+          data-bs-dismiss="modal"
+        >
+          {{ isEditing ? "Update" : "Save" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
