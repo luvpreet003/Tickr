@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth-service.service';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css'],
+  styleUrl: './layout.component.scss',
   imports: [FormsModule, RouterOutlet, CommonModule],
 })
 export class LayoutComponent implements OnInit {

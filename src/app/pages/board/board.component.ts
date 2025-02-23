@@ -61,72 +61,6 @@ export class BoardComponent implements OnInit {
     private http: HttpClient
   ) {}
 
-  // loadSampleTickets() {
-  //   this.tickets = [
-  //     {
-  //       ticketId: 1,
-  //       createdDate: '2025-02-20',
-  //       summary: 'Fix login bug',
-  //       status: 'To Do',
-  //       description: 'Fix login issue on mobile',
-  //       parentId: 0,
-  //       storyPoint: 3,
-  //       ticketGuid: '123',
-  //       assignedTo: 1,
-  //       createdBy: 2,
-  //       projectId: 1,
-  //     },
-  //     {
-  //       ticketId: 2,
-  //       createdDate: '2025-02-21',
-  //       summary: 'Add dark mode',
-  //       status: 'Development',
-  //       description: 'Implement dark mode UI',
-  //       parentId: 0,
-  //       storyPoint: 5,
-  //       ticketGuid: '456',
-  //       assignedTo: 2,
-  //       createdBy: 1,
-  //       projectId: 1,
-  //     },
-  //     {
-  //       ticketId: 3,
-  //       createdDate: '2025-02-22',
-  //       summary: 'Code review for API',
-  //       status: 'Code Review',
-  //       description: 'Review the new API code',
-  //       parentId: 0,
-  //       storyPoint: 2,
-  //       ticketGuid: '789',
-  //       assignedTo: 3,
-  //       createdBy: 1,
-  //       projectId: 1,
-  //     },
-  //     {
-  //       ticketId: 4,
-  //       createdDate: '2025-02-23',
-  //       summary: 'Deploy to production',
-  //       status: 'Closed',
-  //       description: 'Final deployment to production',
-  //       parentId: 0,
-  //       storyPoint: 4,
-  //       ticketGuid: '012',
-  //       assignedTo: 2,
-  //       createdBy: 1,
-  //       projectId: 1,
-  //     },
-  //   ];
-  //   this.filteredTickets = [...this.tickets];
-  // }
-
-  // loadSampleUsers() {
-  //   this.users = [
-  //     { id: 1, name: 'Alice' },
-  //     { id: 2, name: 'Bob' },
-  //     { id: 3, name: 'Charlie' },
-  //   ];
-  // }
-
   ngOnInit() {
     this.loadUsers();
     // this.projectId = this.route.snapshot.paramMap.get('projectId') || '';
@@ -144,18 +78,12 @@ export class BoardComponent implements OnInit {
       this.filteredTickets = data.data;
       console.log(this.filteredTickets);
     });
-
-    //remove
-
-    // this.loadSampleTickets();
   }
 
   loadUsers() {
     this.ticketService.getUsers().subscribe((data: any) => {
       this.users = data.data;
     });
-
-    // this.loadSampleUsers();
   }
 
   getFilteredTickets(status: string) {
@@ -163,7 +91,6 @@ export class BoardComponent implements OnInit {
   }
 
   applyFilters() {
-    console.log('cf');
     this.filteredTickets = this.tickets.filter((ticket) => {
       const matchesUser = this.selectedUser
         ? ticket.assignedTo == this.selectedUser
@@ -176,7 +103,6 @@ export class BoardComponent implements OnInit {
   }
 
   editTicket(ticket: Ticket) {
-    console.log(ticket);
     return this.http
       .post(`/api/Jira/GetTicketById?id=${ticket.ticketId}`, {
         id: ticket.ticketId,
@@ -212,23 +138,7 @@ export class BoardComponent implements OnInit {
   }
 
   openEditModal(ticket: Ticket) {
-    this.selectedTicket = { ...ticket }; // Clone to avoid modifying original before saving
+    this.selectedTicket = ticket;
     this.isModalOpen = true;
-  }
-
-  // 🎨 Get Color for Status Label
-  getStatusClass(status: string = ''): string {
-    switch (status.toUpperCase()) {
-      case 'TODO':
-        return 'status-todo'; // Yellow
-      case 'DEVELOPMENT':
-        return 'status-development'; // Green
-      case 'CODE REVIEW':
-        return 'status-code-review'; // Blue
-      case 'CLOSED':
-        return 'status-closed'; // Gray
-      default:
-        return '';
-    }
   }
 }
