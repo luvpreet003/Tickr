@@ -46,6 +46,7 @@
               (click)="editTicket(ticket)"
               data-bs-toggle="modal"
               data-bs-target="#myModal"
+              class="edit-btn"
             >
               Edit
             </button>
@@ -65,23 +66,52 @@
 <div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <h2>Edit Ticket</h2>
-      <label>Summary:</label>
-      <input
-        type="text"
-        name="summary"
-        class="form-control"
-        [(ngModel)]="selectedTicket.summary"
-      />
-
-      <label>Description:</label>
-      <textarea [(ngModel)]="selectedTicket.description"></textarea>
-
-      <label>Story Points:</label>
-      <input type="number" [(ngModel)]="selectedTicket.storyPoint" />
-
-      <button (click)="saveChanges()">Save</button>
-      <button id="cancelModalbtn" data-bs-dismiss="modal">Cancel</button>
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Ticket</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <label>Summary:</label>
+            <input
+              type="text"
+              name="summary"
+              class="form-control"
+              [(ngModel)]="selectedTicket.summary"
+            />
+          </div>
+          <div class="col-12">
+            <label>Description:</label>
+            <textarea
+              class="form-control"
+              [(ngModel)]="selectedTicket.description"
+            ></textarea>
+          </div>
+          <div class="col-6">
+            <label>Story Points:</label>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="selectedTicket.storyPoint"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="saveChanges()">Save</button>
+        <button
+          class="btn btn-secondary"
+          id="cancelModalbtn"
+          data-bs-dismiss="modal"
+        >
+          Cancel
+        </button>
+      </div>
     </div>
   </div>
 </div>
