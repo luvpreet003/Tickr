@@ -1,0 +1,98 @@
+/* General Layout */
+.users-container {
+    background: linear-gradient(135deg, #f0f5ff, #e6eeff);
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  /* Card Styling */
+  .user-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px 0;
+    background: white;
+    overflow: hidden;
+  }
+  
+  .user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Header */
+  .card-header {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px;
+    background: #4a90e2;
+  }
+  
+  /* Card Body */
+  .user-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .user-password {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  /* Card Footer */
+  .card-footer {
+    padding: 10px;
+    background: #f8f9fa;
+  }
+  
+  .card-footer .btn {
+    width: 48%;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: #5a9bd6;
+    border-color: #5a9bd6;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4a90e2;
+  }
+  
+  .btn-info {
+    background-color: #6ab8f7;
+    border-color: #6ab8f7;
+    color: white;
+  }
+  
+  .btn-info:hover {
+    background-color: #5aa7e5;
+  }
+  
+  .btn-danger-light {
+    background-color: #ff8b8b;
+    border-color: #ff8b8b;
+    color: white;
+  }
+  
+  .btn-danger-light:hover {
+    background-color: #ff7171;
+  }
+  
+  /* Modal */
+  .modal-header {
+    background-color: #4a90e2;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+  }
+  
+  .modal-footer {
+    justify-content: center;
+  }
+  
