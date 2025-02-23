@@ -1,58 +1,97 @@
-.card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 10px 0;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  .card-header {
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .card-body {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .card-footer {
-    background: #f8f9fa;
-    padding: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-  
-  .card-footer .btn {
-    width: 100%;
-  }
-  
-  .btn-success, .btn-danger {
-    font-weight: bold;
-  }
-  
-  .modal-header {
-    background-color: #28a745;
-    color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .modal-content {
-    border-radius: 10px;
-  }
-  
-  .modal-footer {
-    justify-content: center;
-  }
-  
+/* General Layout */
+.projects-container {
+  background: linear-gradient(135deg, #f0f5ff, #e6eeff);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Card Styling */
+.project-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px 0;
+  background: white;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header */
+.card-header {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px;
+  background: #4a90e2;
+}
+
+/* Card Body */
+.project-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.project-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Card Footer */
+.card-footer {
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+.card-footer .btn {
+  width: 48%;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #5a9bd6;
+  border-color: #5a9bd6;
+}
+
+.btn-primary:hover {
+  background-color: #4a90e2;
+}
+
+.btn-info {
+  background-color: #6ab8f7;
+  border-color: #6ab8f7;
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #5aa7e5;
+}
+
+.btn-danger-light {
+  background-color: #ff8b8b;
+  border-color: #ff8b8b;
+  color: white;
+}
+
+.btn-danger-light:hover {
+  background-color: #ff7171;
+}
+
+/* Modal */
+.modal-header {
+  background-color: #4a90e2;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+.modal-footer {
+  justify-content: center;
+}

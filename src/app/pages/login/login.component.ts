@@ -1,40 +1,56 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { LoginService } from './login.service';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
+import { LoginService } from './login.service';
+import { AuthService } from '../../services/auth-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, CommonModule, RouterOutlet],
+  imports: [CommonModule, FormsModule, RouterOutlet],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  loginObj: any = {
-    userId: 0,
-    emailId: 'email',
+  @ViewChild('form') form!: NgForm; // Reference to the form
+
+  loginObj = {
+    emailId: '',
+    password: '',
     fullName: 'string',
-    password: 'string',
   };
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  errorMessage: string = '';
+
+  constructor(
+    private loginService: LoginService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/projects']);
+    }
+  }
 
   onLogin() {
-    this.loginService.login(this.loginObj).subscribe((res: any) => {
-      console.log(res.data);
-      if (res.data) {
-        localStorage.setItem('loginDetails', JSON.stringify(res.data));
-        this.router.navigate(['projects']).then((navigated) => {
-          if (navigated) {
-            console.log('Navigation to board successful');
-          } else {
-            console.error('Navigation failed');
-          }
-        });
-      } else {
-        alert(res.message);
-      }
+    if (this.form.invalid) return;
+
+    this.errorMessage = '';
+
+    this.loginService.login(this.loginObj).subscribe({
+      next: (res: any) => {
+        if (res.data) {
+          this.authService.setLogin(res.data);
+          this.router.navigate(['/projects']); // ✅ Redirecting to projects
+        } else {
+          this.errorMessage = res.message || 'Invalid credentials!';
+        }
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Login failed!';
+      },
     });
   }
 }

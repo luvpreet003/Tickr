@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../../src/app/services/common.service';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { LayoutService } from './layout.service';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-layout',
@@ -31,11 +32,15 @@ export class LayoutComponent implements OnInit {
     projectId: 0,
   };
 
-  constructor(private http: HttpClient, private commonServices: CommonService) {
+  constructor(
+    private layoutService: LayoutService,
+    private commonServices: CommonService,
+    private authService: AuthService
+  ) {
     const loginData = localStorage.getItem('jiraLoginDetails');
     if (loginData != null) {
-      const paserData = JSON.parse(loginData);
-      this.ticketObj.createdBy = paserData.userId;
+      const parsedData = JSON.parse(loginData);
+      this.ticketObj.createdBy = parsedData.userId;
     }
   }
 
@@ -43,32 +48,34 @@ export class LayoutComponent implements OnInit {
     this.getAllProjects();
     this.getAllUsers();
   }
+
   setProject(obj: any) {
     this.commonServices.onProjectChange.next(obj);
   }
 
   getAllProjects() {
-    this.http.get('/api/Jira/GetAllProjects').subscribe((res: any) => {
+    this.layoutService.getAllProjects().subscribe((res: any) => {
       this.projectList = res.data;
       this.commonServices.onProjectChange.next(this.projectList[0]);
     });
   }
+
+  logout() {
+    this.authService.logout(); // ✅ Calls logout function
+  }
+
   getAllUsers() {
-    this.http.get('/api/Jira/GetAllUsers').subscribe((res: any) => {
+    this.layoutService.getAllUsers().subscribe((res: any) => {
       this.userList = res.data;
     });
   }
 
   onTicketCreate() {
-    this.http
-      .post('/api/Jira/CreateTicket', this.ticketObj)
-      .subscribe((res: any) => {
-        if (res.result) {
-          alert(res.message);
-          this.commonServices.onTicketCreate.next(true);
-        } else {
-          alert(res.message);
-        }
-      });
+    this.layoutService.createTicket(this.ticketObj).subscribe((res: any) => {
+      alert(res.message);
+      if (res.result) {
+        this.commonServices.onTicketCreate.next(true);
+      }
+    });
   }
 }

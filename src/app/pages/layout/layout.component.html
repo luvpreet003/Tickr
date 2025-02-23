@@ -1,175 +1,70 @@
-<!-- navbar start-->
-<nav class="navbar navbar-expand-lg bg-white fixed-top">
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand align-self-baseline" href="#"
-      ><i class="fa-solid fa-bars me-3"></i>Jira Software</a
-    >
+    <a class="navbar-brand align-self-baseline" href="#">
+      <i class="fa-solid fa-bars me-3"></i> Tickr
+    </a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarTogglerDemo02"
-      aria-controls="navbarTogglerDemo02"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-dark">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Your Work
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Projects
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Filters
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dashboard
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Teams
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle text-dark content-hover"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Apps
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="board" href="board">Board</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" routerLink="projects" href="projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="users" href="users">Users</a>
+        </li>
+        <li>
           <button
-            class="btn bg-primary p-0 px-1 text-white"
+            type="button"
+            class="btn btn-primary ms-3"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            Create
+            Create Issue
           </button>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex align-items-center">
         <input
-          class="form-control"
+          class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn m-0 p-0" type="submit">
-          <i class="fa-solid fa-bell content-hover p-2"></i>
+        <button class="btn" type="submit">
+          <i class="fa-solid fa-bell content-hover"></i>
         </button>
-        <button class="btn m-0 p-0" type="submit">
-          <i class="fa-solid fa-question content-hover p-2"></i>
+        <button class="btn" type="submit">
+          <i class="fa-solid fa-question content-hover"></i>
         </button>
-        <button class="btn m-0 p-0" type="submit">
-          <i class="fa-solid fa-gear content-hover p-2"></i>
+        <button class="btn" type="submit">
+          <i class="fa-solid fa-gear content-hover"></i>
         </button>
-        <div
-          class="bg-primary rounded-circle text-white w-25 h-25 py-2 text-center"
-        >
-          CT
-        </div>
+        <button (click)="logout()" class="btn btn-danger">Logout</button>
       </form>
     </div>
   </div>
 </nav>
-<div class="container-fluid pt-2 pt-5">
+
+<!-- Content Section -->
+<div class="container-fluid pt-5">
   <router-outlet></router-outlet>
 </div>
 
+<!-- Modal for Create Issue -->
 <div
   class="modal fade"
   id="exampleModal"
@@ -177,81 +72,61 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div
-    class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
-  >
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <div class="modal-header d-flex">
-        <div>
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Create Issue</h1>
-        </div>
-        <div>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Issue</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         <div class="container">
           <div class="row">
             <div class="col-4">
-              <div class="project-model">
-                <label for="">Project <span class="text-danger">*</span></label>
-                <select
-                  name="ticketObj"
-                  [(ngModel)]="ticketObj.projectId"
-                  id=""
-                  class="form-select mb-3"
+              <label>Project <span class="text-danger">*</span></label>
+              <select
+                [(ngModel)]="ticketObj.projectId"
+                class="form-select mb-3"
+              >
+                <option
+                  *ngFor="let project of projectList"
+                  [value]="project.projectId"
                 >
-                  <option
-                    *ngFor="let project of projectList"
-                    [value]="project.projectId"
-                  >
-                    {{ project.projectName }}
-                  </option>
-                </select>
-              </div>
+                  {{ project.projectName }}
+                </option>
+              </select>
             </div>
           </div>
           <hr />
           <div class="row">
-            <!-- <div class="col-4">
-                            <label for="">Issue Type<span class="text-danger">*</span></label>
-                            <select name="" [(ngModel)]="ticketObj.projectId" class="form-select">
-                                <option value="">
-                                    <i class="fa-solid fa-square-check" style="color: #7ea6ec;"></i>
-                                    Select</option>
-                                <option *ngFor="let type of issueTypes">{{type}}</option> 
-                            </select>
-                        </div> -->
             <div class="col-4">
-              <label for=""
-                >Status <span><i class="fa fa-circle-info"></i></span
-              ></label>
-              <select
-                name=""
-                [(ngModel)]="ticketObj.status"
-                class="mb-1 form-select"
-              >
+              <label>Issue Type <span class="text-danger">*</span></label>
+              <select class="form-select">
+                <option value="">Select</option>
+                <option *ngFor="let type of issueTypes">{{ type }}</option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label>Status <i class="fa fa-circle-info"></i></label>
+              <select [(ngModel)]="ticketObj.status" class="mb-1 form-select">
                 <option *ngFor="let sta of status">{{ sta }}</option>
               </select>
             </div>
             <div class="col-12 mb-3">
-              <label for="">Summary <span class="text-danger">*</span></label>
+              <label>Summary <span class="text-danger">*</span></label>
               <input
                 type="text"
-                name="summary"
                 [(ngModel)]="ticketObj.summary"
-                class="form-control border inputbg border-2"
+                class="form-control"
               />
             </div>
             <div class="col-12 mb-3">
-              <label for="">Description</label>
+              <label>Description</label>
               <textarea
-                name="description"
                 [(ngModel)]="ticketObj.description"
                 cols="30"
                 rows="5"
@@ -259,9 +134,8 @@
               ></textarea>
             </div>
             <div class="col-6 mb-3">
-              <label for="">Assignee</label>
+              <label>Assignee</label>
               <select
-                name="assignedTo"
                 [(ngModel)]="ticketObj.assignedTo"
                 class="mb-1 form-select"
               >
@@ -269,17 +143,13 @@
                   {{ user.fullName }}
                 </option>
               </select>
-              <span
-                ><a href="" class="text-decoration-none fw-semibold"
-                  >Assign to me</a
-                ></span
+              <a href="#" class="text-decoration-none fw-semibold"
+                >Assign to me</a
               >
             </div>
-
             <div class="col-6 mb-3">
-              <label for="">Reporter</label>
+              <label>Reporter</label>
               <select
-                name="createdBy"
                 [(ngModel)]="ticketObj.createdBy"
                 class="mb-1 form-select"
               >
@@ -288,42 +158,21 @@
                 </option>
               </select>
             </div>
-            <div class="col-12 mb-3">
-              <label for="">Attachment</label>
-              <div class="border border-dotted text-center p-5">
-                <span
-                  ><i class="fa fa-cloud-arrow-up"></i>Drop files to attach or
-                  <a href="#" class="text-decoration-none">
-                    <label class="custom-file-upload">
-                      <input type="file" />
-                      <i class="fa fa-cloud-arrow-up"></i>
-                      browse
-                    </label>
-                  </a></span
-                >
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <div class="modal-footer justify-content-between">
-        <div>
-          <input type="checkbox" name="" id="" /><span>
-            Create another issue</span
-          >
-        </div>
-        <div>
-          <button type="button" class="btn btn-light" data-bs-dismiss="modal">
-            Cancel
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary"
-            (click)="onTicketCreate()"
-          >
-            Create
-          </button>
-        </div>
+      <div class="modal-footer">
+        <input type="checkbox" /> Create another issue
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onTicketCreate()"
+        >
+          Create
+        </button>
       </div>
     </div>
   </div>
