@@ -1,7 +1,8 @@
 /* Board Container */
 .board-container {
-  width: 100%;
+  background: linear-gradient(135deg, #f0f5ff, #e6eeff);
   padding: 20px;
+  min-height: 100vh;
 }
 
 /* Filters */
@@ -11,13 +12,7 @@
   margin-bottom: 15px;
 }
 
-.search-box {
-  padding: 8px;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
+.search-box,
 select {
   padding: 8px;
   border: 1px solid #ccc;
@@ -35,15 +30,22 @@ select {
 .column {
   flex: 1;
   min-width: 250px;
-  background: #f4f5f7;
-  border-radius: 8px;
+  background: white;
+  border-radius: 12px;
   padding: 10px;
   height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .column h3 {
   text-align: center;
-  background: #333;
+  background: #4a90e2;
   color: white;
   padding: 8px;
   border-radius: 5px;
@@ -57,25 +59,15 @@ select {
   margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-/* Header */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* Status Tag */
+/* Status Tags */
 .status-tag {
   display: inline-block;
-  padding: 3px 6px;
+  padding: 5px 8px;
   font-size: 12px;
   font-weight: bold;
   border-radius: 4px;
@@ -101,12 +93,6 @@ select {
   color: white;
 }
 
-/* Description */
-.card-body p {
-  font-size: 13px;
-  color: #555;
-}
-
 /* Footer Buttons */
 .card-footer {
   display: flex;
@@ -116,10 +102,10 @@ select {
 
 .card-footer button {
   border: none;
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .edit-btn {
@@ -128,43 +114,32 @@ select {
 }
 
 .delete-btn {
-  background: red;
+  background: #ff4d4d;
   color: white;
 }
 
-/* User Avatar */
-.user-avatar {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: gray;
-  display: inline-block;
-}
-
-/* Modal */
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  border-radius: 5px;
+/* Modal Styling */
+.modal-header {
+  background-color: #4a90e2;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .modal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.modal-footer {
+  justify-content: center;
 }
 
 .modal button {
-  padding: 8px 10px;
+  padding: 8px 12px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .save-btn {

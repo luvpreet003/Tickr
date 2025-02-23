@@ -27,7 +27,7 @@ interface User {
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css'],
+  styleUrl: './board.component.scss',
   imports: [CommonModule, FormsModule],
 })
 export class BoardComponent implements OnInit {
