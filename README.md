@@ -1,59 +1,83 @@
-# TickrFE
+# Tickr - Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+## 📌 Project Overview
+This project is a JIRA-like task management system built with **Angular**. It includes features like ticket management, Kanban board, filters, project creation, and editing functionalities.
 
-## Development server
+## 🎯 Features
+- **Kanban Board** with drag-and-drop functionality
+- **Project Management** with create, edit, and delete options
+- **Task Filtering** by title and assigned user
+- **Real-time Updates** using Angular’s reactive approach
+- **Beautiful UI** with a modern theme
 
-To start a local development server, run:
+## 🛠️ Tech Stack
+- **Frontend:** Angular 19, TypeScript, Bootstrap, RxJS, NgRx
 
+## 🚀 Getting Started
+### Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (Latest LTS version recommended)
+- [Angular CLI](https://angular.io/cli)
+
+### Installation
 ```bash
+# Clone the repository
+git clone https://github.com/your-repo/jira-clone-angular.git
+
+# Navigate to the project folder
+cd jira-clone-angular
+
+# Install dependencies
+npm install
+```
+
+### Running the Project
+```bash
+# Start the development server
 ng serve
 ```
+Then, open your browser and navigate to `http://localhost:4200/`.
+you can log in to our project using the below cred.
+- email - ram@gmail.com
+- password - 1234
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+## 📁 Project Structure
+```
+/src
+ ├── app
+ │   ├── components  # Reusable UI components
+ │   ├── pages       # Feature pages like Dashboard, Project Details
+ │   ├── services    # API calls and business logic
+ │   ├── store       # State management using NgRx
+ │   ├── app.module.ts
+ │   ├── app.component.ts
+ ├── assets          # Images, styles, etc.
+ ├── environments    # Environment configs
+ ├── index.html      # Entry point
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Available Scripts
+| Command | Description |
+|---------|-------------|
+| `ng serve` | Runs the development server |
+| `ng build` | Builds the project for production |
+| `ng test` | Runs unit tests |
+| `ng lint` | Runs linting checks |
 
-```bash
-ng generate --help
-```
+## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/ded4d1e3-ffc1-4a50-8559-dc806af81037)
+![image](https://github.com/user-attachments/assets/73af21dd-4de6-4a9c-9980-54f2e0b5ff8b)
+![image](https://github.com/user-attachments/assets/b9c45328-2be9-4f80-92ba-11f5e9c9a1d8)
 
-## Building
+## 📌 TODOs / Future Enhancements
+- [ ] Implement drag-and-drop for Kanban board
+- [ ] Integrate real-time updates with WebSockets
+- [ ] Add role-based access control
 
-To build the project run:
+## 👨‍💻 Contributors
+- Luvpreet Singh- _Developer_
+- Ashutosh Pratap Singh- _Developer_
 
-```bash
-ng build
-```
+## 📄 License
+This project is licensed under the **MIT License**.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
