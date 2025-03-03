@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UsersService } from './users.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-users',
@@ -9,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './users.component.scss',
   imports: [CommonModule, FormsModule],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, AfterViewInit {
   userList: any[] = [];
   userObj: any = {
     userId: 0,
@@ -18,6 +22,7 @@ export class UsersComponent implements OnInit {
     fullName: '',
   };
   isEditing: boolean = false;
+  modal: any;
 
   constructor(private usersService: UsersService) {}
 
@@ -25,10 +30,37 @@ export class UsersComponent implements OnInit {
     this.getAllUsers();
   }
 
+  ngAfterViewInit() {
+    const modalElement = document.getElementById('myModal');
+    if (modalElement) {
+      this.modal = new bootstrap.Modal(modalElement);
+    }
+  }
+
+  openModal() {
+    if (this.modal) {
+      this.modal.show();
+    }
+  }
+
+  closeModal() {
+    if (this.modal) {
+      this.modal.hide();
+    }
+  }
+
   getAllUsers() {
-    this.usersService.getAllUsers().subscribe((res: any) => {
-      this.userList = res.data;
-    });
+    this.usersService
+      .getAllUsers()
+      .pipe(
+        catchError((err) => {
+          console.error('Error fetching users', err);
+          return of({ data: [] });
+        })
+      )
+      .subscribe((res: any) => {
+        this.userList = res.data || [];
+      });
   }
 
   resetUserForm() {
@@ -42,42 +74,60 @@ export class UsersComponent implements OnInit {
   }
 
   onSave() {
-    if (this.isEditing) {
-      this.usersService.updateUser(this.userObj).subscribe((res: any) => {
+    const apiCall = this.isEditing
+      ? this.usersService.updateUser(this.userObj)
+      : this.usersService.createUser(this.userObj);
+
+    apiCall
+      .pipe(
+        catchError((err) => {
+          alert('Something went wrong!');
+          return of({ result: false });
+        })
+      )
+      .subscribe((res: any) => {
         if (res.result) {
-          alert('User updated successfully');
+          alert(
+            this.isEditing
+              ? 'User updated successfully'
+              : 'User created successfully'
+          );
           this.getAllUsers();
+          this.closeModal();
         } else {
-          alert('Update failed');
+          alert('Operation failed');
         }
       });
-    } else {
-      this.usersService.createUser(this.userObj).subscribe((res: any) => {
-        if (res.result) {
-          alert('User created successfully');
-          this.getAllUsers();
-        } else {
-          alert('Creation failed');
-        }
-      });
-    }
   }
 
   onEdit(user: any) {
     this.isEditing = true;
-    this.userObj = { ...user };
+    this.userObj = { ...user }; // Copy user data to avoid reference issues
+
+    // Use setTimeout to ensure the UI updates before the modal opens
+    setTimeout(() => {
+      this.openModal();
+    }, 100);
   }
 
   onDelete(userId: number) {
     if (confirm('Are you sure you want to delete this user?')) {
-      this.usersService.deleteUser(userId).subscribe((res: any) => {
-        if (res.result) {
-          alert('User deleted successfully');
-          this.getAllUsers();
-        } else {
-          alert('Deletion failed');
-        }
-      });
+      this.usersService
+        .deleteUser(userId)
+        .pipe(
+          catchError((err) => {
+            alert('Error deleting user');
+            return of({ result: false });
+          })
+        )
+        .subscribe((res: any) => {
+          if (res.result) {
+            alert('User deleted successfully');
+            this.getAllUsers();
+          } else {
+            alert('Deletion failed');
+          }
+        });
     }
   }
 }

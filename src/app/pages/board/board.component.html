@@ -4,13 +4,13 @@
     <input
       type="text"
       class="search-box"
-      placeholder="Search by Title..."
+      placeholder="🔍 Search by Title..."
       [(ngModel)]="searchQuery"
       (input)="applyFilters()"
     />
 
     <select [(ngModel)]="selectedUser" (change)="applyFilters()">
-      <option value="">All Users</option>
+      <option value="">👥 All Users</option>
       <option *ngFor="let user of users" [value]="user.fullName">
         {{ user.fullName }}
       </option>
@@ -28,17 +28,20 @@
       >
         <div class="card card-bg">
           <div class="card-body ticket-bg border" id="3">
-            <!---->
-            <div class="my-1 fw-bold">{{ ticket.summary }}</div>
-            <div class="row">
-              <div class="col-3">
-                <p class="text-muted space-font m-0 pointer"></p>
-              </div>
-              <div class="col-9 text-end">
-                <p class="text-muted space-font m-0">
-                  {{ ticket.assignedTo }}
-                </p>
-              </div>
+            <!-- Ticket Fields with Labels -->
+            <div class="ticket-header">
+              <span class="label">Summary:</span>
+              <div class="ticket-value">{{ ticket.summary }}</div>
+            </div>
+
+            <div class="ticket-header">
+              <span class="label">Assigned To:</span>
+              <div class="ticket-value">{{ ticket.assignedTo }}</div>
+            </div>
+
+            <div class="ticket-header">
+              <span class="label">Story Points:</span>
+              <div class="ticket-value">{{ ticket.storyPoint }}</div>
             </div>
           </div>
           <div class="card-footer ticket-bg border justify-content-between">
@@ -48,15 +51,14 @@
               data-bs-target="#myModal"
               class="edit-btn"
             >
-              Edit
+              ✏️ Edit
             </button>
             <button class="delete-btn" (click)="deleteTicket(ticket.ticketId)">
-              delete
+              🗑️ Delete
             </button>
           </div>
         </div>
       </div>
-
       }
     </div>
   </div>
@@ -67,7 +69,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Edit Ticket</h4>
+        <h4 class="modal-title">📝 Edit Ticket</h4>
         <button
           type="button"
           class="btn-close"
@@ -103,12 +105,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" (click)="saveChanges()">Save</button>
-        <button
-          class="btn btn-secondary"
-          id="cancelModalbtn"
-          data-bs-dismiss="modal"
-        >
+        <button class="btn btn-primary save-btn" (click)="saveChanges()">
+          Save
+        </button>
+        <button class="btn btn-secondary cancel-btn" data-bs-dismiss="modal">
           Cancel
         </button>
       </div>

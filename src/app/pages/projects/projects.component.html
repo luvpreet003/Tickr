@@ -1,47 +1,50 @@
 <div class="projects-container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 text-center">
       <button
-        class="btn btn-primary btn-sm"
+        class="btn btn-primary btn-lg create-btn"
         data-bs-toggle="modal"
         data-bs-target="#myModal"
         (click)="resetProjectForm()"
       >
-        + Create New Project
+        ➕ Create New Project
       </button>
     </div>
   </div>
 
   <div class="row mt-4">
-    <div class="col-3" *ngFor="let project of projectList">
+    <div
+      class="col-lg-4 col-md-6 col-sm-12"
+      *ngFor="let project of projectList"
+    >
       <div
         class="card project-card"
         (click)="navigateToDetails(project.projectId)"
       >
-        <div class="card-header text-white">
+        <div class="card-header text-white project-header">
           {{ project.shortName }}
         </div>
         <div class="card-body">
-          <h5 class="project-title">{{ project.projectName }}</h5>
+          <h5 class="project-title">📌 {{ project.projectName }}</h5>
           <p class="project-date">
-            <i class="fa-solid fa-calendar"></i>
+            <i class="fa-solid fa-calendar"></i> Created:
             {{ project.createdDate | date : "dd-MM-yy" }}
           </p>
         </div>
         <div class="card-footer d-flex justify-content-between">
           <button
-            class="btn btn-info btn-sm"
+            class="btn btn-outline-primary btn-sm"
             (click)="onEdit(project, $event)"
             data-bs-toggle="modal"
             data-bs-target="#myModal"
           >
-            Edit
+            ✏️ Edit
           </button>
           <button
-            class="btn btn-danger-light btn-sm"
+            class="btn btn-outline-danger btn-sm"
             (click)="onDelete(project.projectId, $event)"
           >
-            Delete
+            🗑️ Delete
           </button>
         </div>
       </div>
@@ -54,7 +57,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">
-            {{ isEditing ? "Edit Project" : "New Project" }}
+            {{ isEditing ? "✏️ Edit Project" : "🆕 New Project" }}
           </h4>
           <button
             type="button"
@@ -90,15 +93,15 @@
             class="btn btn-secondary"
             data-bs-dismiss="modal"
           >
-            Close
+            ❌ Close
           </button>
           <button
             type="button"
-            class="btn btn-primary"
+            class="btn btn-success"
             (click)="onSave()"
             data-bs-dismiss="modal"
           >
-            {{ isEditing ? "Update" : "Save" }}
+            {{ isEditing ? "💾 Update" : "✅ Save" }}
           </button>
         </div>
       </div>
